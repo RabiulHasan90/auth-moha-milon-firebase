@@ -18,7 +18,10 @@ export default function Navbar() {
       <Link to="/login"> Login </Link>
      <Link to="/register"> register</Link>
      <Link to="/orders"> orders</Link>
-   
+     {
+       user && <> <Link to="/profile"> profile</Link>
+     <Link to="/dashboard"> dashboard</Link> </>
+     }   
    
    </>
 
@@ -47,7 +50,7 @@ export default function Navbar() {
         <div className="navbar-end">
            <div>
             {
-              user ? <a onClick={handleLogOut} className="btn">signout</a> :
+              user ? <> { user.email} <a onClick={handleLogOut} className="btn">signout</a> </>:
                 <Link to="/login"><button>Log In</button></Link>
             }
           </div>
